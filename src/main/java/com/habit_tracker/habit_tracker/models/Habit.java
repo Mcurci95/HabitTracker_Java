@@ -1,6 +1,10 @@
 package com.habit_tracker.habit_tracker.models;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+@Data
+@EqualsAndHashCode(of = "id")
 public class Habit {
 
     private int id;
