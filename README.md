@@ -9,6 +9,7 @@ This application will provide an interface to track habits. The software will al
 The program is designed to derive data to ultimately form better habits. 
 
 Ideas:
+* Score system for continuing to do each habit
 1. Habit API
 2. Website
 3. IOS app using Swift
