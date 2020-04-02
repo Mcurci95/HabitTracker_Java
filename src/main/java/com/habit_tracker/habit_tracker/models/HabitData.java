@@ -10,13 +10,13 @@ public class HabitData {
 
     // In memory data for testing
 
-    public static int idValue;
+    public static int idValue = 0;
 
     public final List<Habit> habits = new ArrayList<>();
 
     public HabitData() {
-        habits.add(new Habit("Reading", "Reading a book", 20, "home"));
-        habits.add(new Habit("Meditating", "Breathing exercises", 20, "home"));
+        addHabit(new Habit("Reading", "Reading a book", 20, "home"));
+        addHabit(new Habit("Meditating", "Breathing exercises", 20, "home"));
     }
 
     public List<Habit> getHabits() {
