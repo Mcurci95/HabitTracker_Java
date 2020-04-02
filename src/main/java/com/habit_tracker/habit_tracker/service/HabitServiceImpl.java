@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class HabitServiceImpl implements HabitService {
 
-    
+
     public HabitData habitData = new HabitData();
 
     @Override
