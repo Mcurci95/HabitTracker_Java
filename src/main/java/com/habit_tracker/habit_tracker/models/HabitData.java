@@ -5,14 +5,15 @@ import lombok.NonNull;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.ListIterator;
 
 public class HabitData {
 
     // In memory data for testing
 
-    public static int idValue = 0;
+    private static int idValue = 0;
 
-    public final List<Habit> habits = new ArrayList<>();
+    private final List<Habit> habits = new ArrayList<>();
 
     public HabitData() {
         addHabit(new Habit("Reading", "Reading a book", 20, "home"));
@@ -36,5 +37,14 @@ public class HabitData {
             }
         }
         return null;
+    }
+
+    public void removeHabit(int id) {
+        ListIterator listIterator = habits.listIterator();
+        while (listIterator.hasNext()) {
+            if (listIterator.next().equals(id)) {
+                listIterator.remove();
+            }
+        }
     }
 }

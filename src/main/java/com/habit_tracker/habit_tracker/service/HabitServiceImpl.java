@@ -5,6 +5,8 @@ import com.habit_tracker.habit_tracker.models.HabitData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ListIterator;
+
 @Service
 public class HabitServiceImpl implements HabitService {
 
@@ -18,7 +20,7 @@ public class HabitServiceImpl implements HabitService {
 
     @Override
     public void removeHabit(int id) {
-
+        this.habitData.removeHabit(id);
     }
 
     @Override

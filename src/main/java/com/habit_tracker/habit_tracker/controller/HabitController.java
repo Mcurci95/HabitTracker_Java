@@ -7,6 +7,8 @@ import com.habit_tracker.habit_tracker.service.HabitServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -23,5 +25,13 @@ public class HabitController {
         log.info("calling get mapping");
         System.out.println(service.getData().toString());
         return service.getData();
+    }
+
+    @GetMapping("/remove")
+    @ResponseBody
+    public String removeHabit(@RequestParam int id) {
+        log.info("Calling: removeHabit on id: {}", id);
+        service.removeHabit(id);
+        return "Removed habit with ID: " + id;
     }
 }
