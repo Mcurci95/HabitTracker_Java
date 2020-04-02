@@ -40,10 +40,12 @@ public class HabitData {
     }
 
     public void removeHabit(int id) {
-        ListIterator listIterator = habits.listIterator();
+        ListIterator<Habit> listIterator = habits.listIterator();
         while (listIterator.hasNext()) {
-            if (listIterator.next().equals(id)) {
+            Habit habit = listIterator.next();
+            if (habit.getId() == id) {
                 listIterator.remove();
+                break;
             }
         }
     }
