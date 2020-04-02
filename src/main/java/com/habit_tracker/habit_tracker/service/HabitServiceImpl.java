@@ -2,11 +2,13 @@ package com.habit_tracker.habit_tracker.service;
 
 import com.habit_tracker.habit_tracker.models.Habit;
 import com.habit_tracker.habit_tracker.models.HabitData;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class HabitServiceImpl implements HabitService {
 
+    
     public HabitData habitData = new HabitData();
 
     @Override
@@ -31,6 +33,6 @@ public class HabitServiceImpl implements HabitService {
 
     @Override
     public HabitData getData() {
-        return null;
+        return this.habitData;
     }
 }
