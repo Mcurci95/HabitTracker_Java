@@ -34,4 +34,13 @@ public class HabitController {
         service.removeHabit(id);
         return "Removed habit with ID: " + id;
     }
+
+    @GetMapping("/get")
+    @ResponseBody
+    public Habit getHabit(@RequestParam  int id) {
+        log.info("Calling: getHabit on id: {}", id);
+        Habit habit = service.getHabit(id);
+        return habit;
+    }
+
 }
