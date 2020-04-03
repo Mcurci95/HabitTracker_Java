@@ -18,6 +18,7 @@ public class HabitData {
     public HabitData() {
         addHabit(new Habit("Reading", "Reading a book", 20, "home"));
         addHabit(new Habit("Meditating", "Breathing exercises", 20, "home"));
+        addHabit(new Habit("Jogging", "jogging 1 mile per day", 15, "park"));
     }
 
     public List<Habit> getHabits() {
