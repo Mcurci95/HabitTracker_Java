@@ -8,7 +8,8 @@ class App extends React.Component {
         super(props);
         this.state = {
             isLoading: true,
-            habits: null
+            habits: null,
+            habitsList: []
         };
     }
 
@@ -23,18 +24,17 @@ class App extends React.Component {
 
     render() {
         const {habits, isLoading} = this.state;
-        console.log("habits");
-        console.log(this.state.habits);
 
         if (isLoading) {
             return <p>Loading...</p>
         }
-
         let habitList = [];
-        for (let habit in habits["habits"]) {
-            habitList.push(habit);
+
+        for(let i=0; i < habits.habits.length; i++) {
+            console.log(habits.habits[i]);
+            habitList.push(habits.habits[i]);
         }
-        console.log(habitList);
+
 
 
         return (
@@ -44,7 +44,11 @@ class App extends React.Component {
                         <h2>Habits:</h2>
                         {habitList.map(habit =>
                             <div>
-                                {habit.id}
+                                {habit.id} -
+                                {habit.title} -
+                                {habit.details} -
+                                {habit.minutes} mins
+
                             </div>
                         )
                         }
