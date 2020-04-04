@@ -10,9 +10,10 @@ public class Habit {
     private int id;
     private String title;
     private String details;
-    //    private DayOfWeek[] days; // What days do you want to do this habit?
     private int minutes;
     private String location;
+
+    // day of the week?
 
     public Habit(String title, String details,  int minutes, String location) {
         this.title = title;

@@ -6,16 +6,16 @@ import com.habit_tracker.habit_tracker.service.HabitService;
 import com.habit_tracker.habit_tracker.service.HabitServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 
 
 @Slf4j
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class HabitController {
+
+    // TODO change to Response Entities?
+    // TODO editHabit
 
     @Autowired
     private static final HabitService service = new HabitServiceImpl();
@@ -25,6 +25,13 @@ public class HabitController {
         log.info("calling get mapping");
         System.out.println(service.getData().toString());
         return service.getData();
+    }
+
+    @PostMapping("/add")
+    public String addHabit(Habit habit) {
+        log.info("Adding habit");
+        service.addHabit(habit);
+        return "Habit added";
     }
 
     @GetMapping("/remove")
@@ -42,5 +49,6 @@ public class HabitController {
         Habit habit = service.getHabit(id);
         return habit;
     }
+
 
 }
