@@ -1,5 +1,5 @@
 import React from 'react';
-
+import AppNav from "./Navbar";
 import '../App.css';
 import * as ReactBootstrap from 'react-bootstrap';
 
@@ -33,7 +33,6 @@ class HabitList extends React.Component {
                 <td><ReactBootstrap.Form.Check type="checkbox" /></td>
                 {/*<td><ReactBootstrap.Button variant="primary">Complete</ReactBootstrap.Button>{' '}</td>*/}
             </tr>
-
         )
     }
 
@@ -52,6 +51,7 @@ class HabitList extends React.Component {
 
         return (
             <div className="App-intro">
+                <AppNav/>
                 <div className="float-right">
                     <ReactBootstrap.Button color="success"  to="/groups/new">Add Habit</ReactBootstrap.Button>
                 </div>

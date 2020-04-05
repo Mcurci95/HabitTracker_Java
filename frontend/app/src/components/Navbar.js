@@ -3,7 +3,7 @@ import { Collapse, Nav, Navbar, NavbarBrand, NavLink} from "react-bootstrap";
 import { Link } from 'react-router-dom';
 import '../App.css';
 
-export default class Navbar extends Component {
+export default class AppNav extends Component {
     constructor(props) {
         super();
         this.state = {isOpen: false};
@@ -11,9 +11,12 @@ export default class Navbar extends Component {
 
     render() {
         return (
-            <Navbar color={"dark"} dark expand={"md"}>
-                <NavbarBrand tag={Link} to={"/"}>Habit</NavbarBrand>
+            <Navbar bg="dark" variant="dark">
+                <Navbar.Brand href="#home">Habit Tracker</Navbar.Brand>
+                <Nav className="mr-auto">
+                    <Nav.Link href="#home">Home</Nav.Link>
+                </Nav>
             </Navbar>
-        )
+        );
     }
 }
