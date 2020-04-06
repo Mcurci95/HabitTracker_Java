@@ -2,6 +2,7 @@ import React from 'react';
 import AppNav from "./Navbar";
 import '../App.css';
 import * as ReactBootstrap from 'react-bootstrap';
+import {Link} from "react-router-dom";
 
 class HabitList extends React.Component {
 
@@ -29,7 +30,7 @@ class HabitList extends React.Component {
                 <td>{habit.location}</td>
                 {/*<td><ReactBootstrap.Button variant="info" size="sm">Details</ReactBootstrap.Button>{' '}</td>*/}
                 <td>{habit.details}</td>
-                <td><ReactBootstrap.Button variant="success" size="sm">Edit</ReactBootstrap.Button>{' '}</td>
+                <td><ReactBootstrap.Button variant="success" size="sm" tag={Link} to={"/habits?id=" + habit.id}>Edit</ReactBootstrap.Button>{' '}</td>
                 <td><ReactBootstrap.Form.Check type="checkbox" /></td>
                 {/*<td><ReactBootstrap.Button variant="primary">Complete</ReactBootstrap.Button>{' '}</td>*/}
             </tr>
@@ -53,7 +54,7 @@ class HabitList extends React.Component {
             <div className="App-intro">
                 <AppNav/>
                 <div className="float-right">
-                    <ReactBootstrap.Button color="success"  to="/groups/new">Add Habit</ReactBootstrap.Button>
+                    <ReactBootstrap.Button color="success"  tag={Link} to="/habits/new">Add Habit</ReactBootstrap.Button>
                 </div>
                 <h2>Habits:</h2>
                 <ReactBootstrap.Table striped bordered hover>
