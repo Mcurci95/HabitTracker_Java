@@ -5,13 +5,17 @@ import HabitList from "./components/HabitList";
 import HabitEdit from "./components/HabitEdit";
 import Home from "./components/Home";
 
+
+
+
+
 class App  extends Component {
     render() {
         return (
             <Router>
                 <Switch>
                     <Route path={"/habits"} exact={true} component={HabitList} />
-                    <Route path={"/habits/get?id={}"} component={HabitEdit}/>
+                    <Route path="/edit" component={HabitEdit}/>
                 </Switch>
             </Router>
         )
