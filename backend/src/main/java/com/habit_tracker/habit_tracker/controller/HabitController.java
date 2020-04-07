@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class HabitController {
 
     // TODO change to Response Entities?
-    // TODO editHabit
+
 
     @Autowired
     private static final HabitService service = new HabitServiceImpl();
@@ -48,6 +48,12 @@ public class HabitController {
         log.info("Calling: getHabit on id: {}", id);
         Habit habit = service.getHabit(id);
         return habit;
+    }
+
+    public String editHabit(Habit habit) {
+        log.info("Habit to edit => {}", habit.getId());
+        service.updateHabit(habit);
+        return "Updated habit with id: {}" + habit.getId();
     }
 
 
