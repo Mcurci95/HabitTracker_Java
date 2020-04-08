@@ -15,7 +15,7 @@ class App  extends Component {
             <Router>
                 <Switch>
                     <Route path={"/habits"} exact={true} component={HabitList} />
-                    <Route path="/edit" component={HabitEdit}/>
+                    <Route path="/habits/edit" component={HabitEdit}/>
                 </Switch>
             </Router>
         )
