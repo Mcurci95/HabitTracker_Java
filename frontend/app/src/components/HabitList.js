@@ -53,9 +53,11 @@ class HabitList extends React.Component {
         return (
             <div className="App-intro">
                 <AppNav/>
-                <div className="float-right">
-                    <ReactBootstrap.Button color="success"  tag={Link} to="/habits/new">Add Habit</ReactBootstrap.Button>
-                </div>
+                <Link to={"/habits/edit/"}>
+                    <div className="float-right">
+                        <ReactBootstrap.Button color="success"  tag={Link} to="./habits/edit/">Add Habit</ReactBootstrap.Button>
+                    </div>
+                </Link>
                 <h2>Habits:</h2>
                 <ReactBootstrap.Table striped bordered hover>
                     <thead>
