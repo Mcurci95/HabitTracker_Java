@@ -12,7 +12,7 @@ export default class AppNav extends Component {
     render() {
         return (
             <Navbar bg="dark" variant="dark">
-                <Navbar.Brand href="#home">Habit Tracker</Navbar.Brand>
+                <Navbar.Brand href="/habits/">Habit Tracker</Navbar.Brand>
                 <Nav className="mr-auto">
                     <Nav.Link href="#home">Home</Nav.Link>
                 </Nav>

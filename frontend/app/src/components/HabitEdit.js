@@ -30,16 +30,20 @@ class HabitEdit extends Component {
 
     handleChange(event) {
         const target = event.target;
-        const value = event.value;
+        const value = target.value;
         const name = target.name;
         let habit = {...this.state.habit};
         habit[name] = value;
+        console.log("Habit on change => ", habit);
         this.setState({habit});
     }
 
     async handleSubmit(event) {
         event.preventDefault();
+        console.log("Calling submit!");
         const {habit} = this.state;
+        console.log("Habit to submit =>" , habit);
+        console.log("Number", Number(habit["minutes"]));
 
         await fetch('http://localhost:8080/add', {
             method: (habit.id) ? 'PUT' : 'POST',
@@ -47,7 +51,12 @@ class HabitEdit extends Component {
                 'Accept' : 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(habit)
+            body: JSON.stringify({
+                "title": habit["title"],
+                "details": habit["details"],
+                "location": habit["location"],
+                "minutes": Number(habit["minutes"])
+            })
         });
         this.props.history.push('/habits');
     }
@@ -67,39 +76,35 @@ class HabitEdit extends Component {
                 <AppNav/>
                 <ReactBootstrap.Container>
                     {title}
-
-
                         <ReactBootstrap.Form onSubmit={this.handleSubmit}>
-                            <ReactBootstrap.FormGroup>
+                            <ReactBootstrap.Form.Group>
                                 <ReactBootstrap.Form.Label for="title">Title</ReactBootstrap.Form.Label>
-                                <ReactBootstrap.Form.Control type={"text"} name={"title"} id={"title"} value={habit.title || ''}
-                                                             onChange={this.handleChange} autoComplete={'title'}/>
-                            </ReactBootstrap.FormGroup>
+                                <ReactBootstrap.Form.Control type="text" name={"title"} id={"title"} defaultValue={habit.title || ''}
+                                                              onChange={this.handleChange} autoComplete={'title'}/>
+                            </ReactBootstrap.Form.Group>
                             <div className={"row"} align={"center"}>
                                 <ReactBootstrap.FormGroup className={"col-md-4 mb-3"}>
                                     <ReactBootstrap.Form.Label for={"location"}>Location</ReactBootstrap.Form.Label>
-                                    <ReactBootstrap.Form.Control type={"text"} name={"location"} id={"location"} value={habit.location || ''}
+                                    <ReactBootstrap.Form.Control type={"text"} name={"location"} id={"location"} defaultValue={habit.location || ''}
                                                                  onChange={this.handleChange} autoComplete={"Location"}/>
                                 </ReactBootstrap.FormGroup>
                                 <ReactBootstrap.FormGroup className={"col-md-5 mb-3"}>
-                                    <ReactBootstrap.Form.Label for={"minutes"}>Minutes</ReactBootstrap.Form.Label>
-                                    <ReactBootstrap.Form.Control as={"select"}>
+                                    <ReactBootstrap.Form.Label for={"minutes"} >Minutes</ReactBootstrap.Form.Label>
+                                    <ReactBootstrap.Form.Control name={"minutes"} as={"select"} onChange={this.handleChange}>
                                         {minuteOptions.map(minute => <option>{minute}</option>)}</ReactBootstrap.Form.Control>
                                 </ReactBootstrap.FormGroup>
                             </div>
 
                             <ReactBootstrap.FormGroup>
                                 <ReactBootstrap.Form.Label for={"details"}>Details</ReactBootstrap.Form.Label>
-                                <ReactBootstrap.Form.Control type={"text"} name={"details"} id={"details"} value={habit.details || ''}
+                                <ReactBootstrap.Form.Control type={"text"} name={"details"} id={"details"} defaultValue={habit.details || ''}
                                                              onChange={this.handleChange} autoComplete={"Details"}/>
                             </ReactBootstrap.FormGroup>
+                            <ReactBootstrap.FormGroup>
+                                <ReactBootstrap.Button color={'success'} type={'submit'}>Submit</ReactBootstrap.Button>
+                            </ReactBootstrap.FormGroup>
                         </ReactBootstrap.Form>
-                    <ReactBootstrap.FormGroup>
-                        <ReactBootstrap.Button color={'success'} type={'submit'}>Submit</ReactBootstrap.Button>
-                    </ReactBootstrap.FormGroup>
                 </ReactBootstrap.Container>
-
-
             </div>
         )
     }
