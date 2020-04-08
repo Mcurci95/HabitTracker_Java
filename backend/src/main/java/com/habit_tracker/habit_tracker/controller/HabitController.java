@@ -28,8 +28,8 @@ public class HabitController {
     }
 
     @PostMapping("/add")
-    public String addHabit(Habit habit) {
-        log.info("Adding habit");
+    public String addHabit(@RequestBody Habit habit) {
+        log.info("Adding habit with title {}", habit.getTitle());
         service.addHabit(habit);
         return "Habit added";
     }
@@ -50,6 +50,7 @@ public class HabitController {
         return habit;
     }
 
+    @PutMapping("/add")
     public String editHabit(Habit habit) {
         log.info("Habit to edit => {}", habit.getId());
         service.updateHabit(habit);
