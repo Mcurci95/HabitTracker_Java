@@ -16,7 +16,7 @@ class HabitList extends React.Component {
     }
 
     async componentDidMount() {
-        const response = await fetch("http://localhost:8080");
+        const response = await fetch("http://localhost:8080/");
         const body = await response.json();
         this.setState({habits: body, isLoading: false});
     }
@@ -30,7 +30,9 @@ class HabitList extends React.Component {
                 <td>{habit.location}</td>
                 {/*<td><ReactBootstrap.Button variant="info" size="sm">Details</ReactBootstrap.Button>{' '}</td>*/}
                 <td>{habit.details}</td>
-                <td><ReactBootstrap.Button variant="success" size="sm" tag={Link} to={"/habits?id=" + habit.id}>Edit</ReactBootstrap.Button>{' '}</td>
+                <Link to={"/habits/edit/" + habit.id}>
+                    <td><ReactBootstrap.Button variant="success" size="sm">Edit</ReactBootstrap.Button>{' '}</td>
+                </Link>
                 <td><ReactBootstrap.Form.Check type="checkbox" /></td>
                 {/*<td><ReactBootstrap.Button variant="primary">Complete</ReactBootstrap.Button>{' '}</td>*/}
             </tr>

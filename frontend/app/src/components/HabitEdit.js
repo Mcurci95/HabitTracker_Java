@@ -22,8 +22,9 @@ class HabitEdit extends Component {
     }
 
     async componentDidMount() {
+        console.log("From componentDidMount => ", this.props.match.params.id)
         if (this.props.match.params.id !== 'new') {
-            const habit = await( await fetch(`/api/habits/${this.props.match.params.id}`)).json();
+            const habit = await( await fetch(`http://localhost:8080/get?id=${this.props.match.params.id}`)).json();
             this.setState({habit: habit});
         }
     }
@@ -51,12 +52,7 @@ class HabitEdit extends Component {
                 'Accept' : 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                "title": habit["title"],
-                "details": habit["details"],
-                "location": habit["location"],
-                "minutes": Number(habit["minutes"])
-            })
+            body: JSON.stringify(habit)
         });
         this.props.history.push('/habits');
     }
