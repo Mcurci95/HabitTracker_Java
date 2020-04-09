@@ -51,4 +51,15 @@ public class HabitData {
             }
         }
     }
+
+    public void updateHabit(Habit habitToUpdate) {
+        ListIterator<Habit> habitListIterator = habits.listIterator();
+        while (habitListIterator.hasNext()) {
+            Habit habit = habitListIterator.next();
+            if (habit.equals(habitToUpdate)) {
+                habitListIterator.set(habitToUpdate);
+                break;
+            }
+        }
+    }
 }

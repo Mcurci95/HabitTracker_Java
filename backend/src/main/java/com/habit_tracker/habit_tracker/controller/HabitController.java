@@ -51,11 +51,9 @@ public class HabitController {
     }
 
     @PutMapping("/add")
-    public String editHabit(Habit habit) {
+    public String editHabit(@RequestBody Habit habit) {
         log.info("Habit to edit => {}", habit.getId());
         service.updateHabit(habit);
         return "Updated habit with id: {}" + habit.getId();
     }
-
-
 }
