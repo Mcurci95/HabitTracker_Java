@@ -6,13 +6,12 @@ This application will provide an interface to track habits. The software will al
 * Practicing yoga
 * etc
 
+Program is built using Spring Boot and Java for backend API data managing. The front end interface is built using Javascript and React.
+
+
+
+![View all Habits](https://github.com/Mcurci95/HabitTracker_Java/blob/master/addhabit.png)
+
 The program is designed to derive data to ultimately form better habits. 
 
-Ideas:
-* Score system for continuing to do each habit
-1. Habit API
-2. Website
-3. IOS app using Swift
-4. Data and dashboards 
-5. Notifications
-6. Inspiration to continue forming habits
+
