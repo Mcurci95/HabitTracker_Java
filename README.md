@@ -10,8 +10,10 @@ Program is built using Spring Boot and Java for backend API data managing. The f
 
 
 
-![View all Habits](https://github.com/Mcurci95/HabitTracker_Java/blob/master/addhabit.png)
+![View all Habits](https://github.com/Mcurci95/HabitTracker_Java/blob/master/habits.png)
 
+You can add and track new Habits by clicking "Add Habit" in the top right.
+![Add a new Habit](https://github.com/Mcurci95/HabitTracker_Java/blob/master/addhabit.png)
 The program is designed to derive data to ultimately form better habits. 
 
 
